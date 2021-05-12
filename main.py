@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 # import related models
 estimator = load_pretrain_model('VGG_origin')
-action_classifier = load_action_premodel('Action/framewise_recognition.h5')
+action_classifier = load_action_premodel('Action/framewise_recognition_under_scene.h5')
 
 # Parameter initialization
 realtime_fps = '0.0000'

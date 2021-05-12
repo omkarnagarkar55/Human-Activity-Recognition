@@ -42,7 +42,7 @@ while cv.waitKey(1) < 0:
         # get pose info
         pose = TfPoseVisualizer.draw_pose_rgb(show, humans)  # return frame, joints, bboxes, xcenter
         # recognize the action framewise
-        #show = framewise_recognize(pose, action_classifier)
+        show = framewise_recognize(pose, action_classifier)
 
         height, width = show.shape[:2]
         # Display real-time FPS value

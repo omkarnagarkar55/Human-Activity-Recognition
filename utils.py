@@ -18,14 +18,15 @@ def choose_run_mode(args):
     """
     video or webcam
     """
+    #arg = args.video
     global out_file_path
-    if args.video:
+    if args:
         # Open the video file
-        if not os.path.isfile(args.video):
-            print("Input video file ", args.video, " doesn't exist")
+        if not os.path.isfile(args):
+            print("Input video file ", args, " doesn't exist")
             sys.exit(1)
-        cap = cv.VideoCapture(args.video)
-        out_file_path = str(out_file_path / (args.video[:-4] + '_tf_out.mp4'))
+        cap = cv.VideoCapture(args)
+        out_file_path = str(out_file_path / (args[:-4] + '_tf_out.mp4'))
     else:
         # Webcam input
         cap = cv.VideoCapture(0)

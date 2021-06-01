@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% block content %}
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark  mb-3" >
+  <span class="navbar-brand " style="font-size: 30px;" href="#">Activity Recognition</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " style="margin-right: auto !important;" id="navbarNavDropdown">
+      <ul class="navbar-nav  navbar-right mr-2">
+          <li class="nav-item "  >
+          <a class="nav-link" href="/logout" style="font-size: 25px;cursor:pointer;" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          </li>
+      </ul>
+
+  </div>
+</nav>
+
+
+<!-- Small modal -->
+<div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 style="color:black;">Log Out <i class="fa fa-lock"></i></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+      </div>
+      <div class="modal-body">
+        <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>
+        <div class="actionsBtns">
+            <form action="/logout" method="post">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <button type="submit" class="btn btn-danger btn-lg" >
+						<span  style="color:white;font-size:18px;" href="/logout">Logout</span>
+				</button>
+	                <button class="btn btn-default btn-lg ml-3" data-dismiss="modal">Cancel</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+
+body {
+  font-family: 'Comfortaa', cursive;
+  background: #353535;
+  color: #FFF;
+}
+.jumbotron h1 {
+  color: #353535;
+}
+
+
+footer {
+  margin-bottom: 0 !important;
+  margin-top: 80px;
+}
+footer p {
+  margin: 0;
+  padding: 0;
+}
+span.icon {
+  margin: 0 5px;
+  color: #D64541;
+}
+h2 {
+  color: #BDC3C7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.mrng-60-top {
+  margin-top: 60px;
+}
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  border-radius: 0;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  z-index: -1;
+  -webkit-transition: all 0.75s ease 0s;
+  -moz-transition: all 0.75s ease 0s;
+  -o-transition: all 0.75s ease 0s;
+  transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+  color: #FFF;
+  text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+  height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+  position: relative;
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 15px;
+  color: #fff;
+  font-size:14px;
+  border-radius: 0;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  letter-spacing: .08em;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-one {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+a.animated-button.victoria-two {
+  border: 2px solid #D24D57;
+}
+a.animated-button.victoria-two:after {
+  background: #D24D57;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(25deg);
+  transform: translateX(-50%) translateY(-50%) rotate(25deg);
+}
+
+}
+</style>
+<div class="jumbotron text-center">
+
+  <div class="container">
+
+    <h1>Human Activity Recognition System</h1>
+    <p style="color:#888;">Based on Python and OpenCV</p>
+
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Here We go !</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6"> <a href="/webcam" class="btn btn-sm animated-button victoria-one">Start Recognition from Webcam</a> </div>
+    <div class="col-md-6 col-sm-6 col-xs-6"> <a href="/video" class="btn btn-sm animated-button victoria-two">Start Recognition from a video</a> </div>
+
+{% endblock %}

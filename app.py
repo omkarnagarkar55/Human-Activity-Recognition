@@ -21,9 +21,9 @@ class User(db.Model):
 
 rec = Recognition()
 
-@app.route('/')
-def index(name=None):
-    return render_template('index.html', name=name)
+@app.route('/har')
+def har(name=None ,methods=['GET']):
+    return render_template('home.html', name=name)
 
 @app.route('/webcam')
 def parse(name=None):
@@ -33,7 +33,7 @@ def parse(name=None):
     #rec.startrecognition(args)
 
     print("done2")
-    return render_template('index.html', name=name)
+    return render_template('index2.html', name=name)
 
 
 @app.route('/video')
@@ -43,17 +43,17 @@ def parse1(name=None):
     args = 'wave.mp4'
     rec.startrecognition(args)
 
-    return render_template('index.html', name=name)
+    return render_template('index2.html', name=name)
 
 @app.route('/', methods=['GET'])
 def index():
     if session.get('logged_in'):
-        return render_template('home.html')
+        return redirect(url_for('har'))
     else:
-        return render_template('index.html', message="Hello!")
+        return render_template('index.html', message="Welcome !!!")
 
 
-@app.route('/register/', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         try:
@@ -66,7 +66,7 @@ def register():
         return render_template('register.html')
 
 
-@app.route('/login/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
         return render_template('login.html')

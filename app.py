@@ -23,11 +23,7 @@ rec = Recognition()
 
 @app.route('/har')
 def har(name=None ,methods=['GET']):
-    if session.get('logged_in'):
-        return render_template('home.html', name=name)
-    else:
-        return render_template('index.html', message="Please login to access!!!")
-
+    return render_template('home.html', name=name)
 
 @app.route('/webcam')
 def parse(name=None):

@@ -1,6 +1,6 @@
 
 
-from flask import Flask, url_for, render_template, request, redirect, session
+from flask import Flask, url_for, render_template, request, redirect, session ,Response
 from flask_sqlalchemy import SQLAlchemy
 from activityrecognition import Recognition
 
@@ -45,9 +45,9 @@ def parse1(name=None):
     #rec = Recognition()
 
     args = 'wave.mp4'
-    rec.startrecognition(args)
+    return Response(rec.startrecognition(args) , mimetype='multipart/x-mixed-replace; boundary=frame')
 
-    return render_template('index2.html', name=name)
+    #return render_template('index2.html', name=name)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -88,6 +88,8 @@ def login():
 def logout():
     session['logged_in'] = False
     return redirect(url_for('index'))
+
+
 
 if __name__ == '__main__':
     app.secret_key = "ThisIsNotASecret:p"

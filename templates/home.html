@@ -182,4 +182,15 @@ a.animated-button.victoria-two:after {
     <div class="col-md-6 col-sm-6 col-xs-6"> <a href="/webcam" class="btn btn-sm animated-button victoria-one">Start Recognition from Webcam</a> </div>
     <div class="col-md-6 col-sm-6 col-xs-6"> <a href="/video" class="btn btn-sm animated-button victoria-two">Start Recognition from a video</a> </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <h3 class="mt-5">Live Streaming {{flage}}</h3>
+            {% if flage %}
+            <img src="{{ url_for('video') }}" width="40%">
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

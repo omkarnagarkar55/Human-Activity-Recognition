@@ -8,7 +8,7 @@ from activityrecognition import Recognition
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
-
+userName = ''
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True)
@@ -22,8 +22,8 @@ class User(db.Model):
 rec = Recognition()
 
 @app.route('/har')
-def har(name=None ,methods=['GET']):
-    return render_template('home.html', name=name)
+def har(name=userName ,methods=['GET']):
+    return render_template('home.html', name=userName)
 
 @app.route('/webcam')
 def parse(name=None):
@@ -75,6 +75,8 @@ def login():
         p = request.form['password']
         data = User.query.filter_by(username=u, password=p).first()
         if data is not None:
+            global userName
+            userName = data.username
             session['logged_in'] = True
             return redirect(url_for('index'))
         return render_template('index.html', message="Incorrect Details")

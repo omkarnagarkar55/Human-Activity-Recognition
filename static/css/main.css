@@ -1,6 +1,13 @@
 
-
-
+.nav-link .img-profile {
+    height: 2rem;
+    width: 2rem;
+}
+.rounded-circle {
+    border-radius: 50%!important;
+    height:24px;
+    width:28px;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
@@ -50,7 +57,11 @@ a:hover {
 	text-decoration: none;
   color: #403866;
 }
-
+.wel{
+    text-decoration:none;
+    font-size:20px;
+    margin:13px;
+}
 /*---------------------------------------------*/
 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
@@ -147,7 +158,8 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  
+
+  background-color:#e4eae9;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;;
@@ -155,7 +167,7 @@ iframe {
 
 
 .wrap-login100 {
-  width: 390px;
+  width: 478px;
   background: #fff;
   border-radius: 10px;
   position: relative;

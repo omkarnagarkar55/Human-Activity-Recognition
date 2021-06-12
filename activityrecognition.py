@@ -42,7 +42,7 @@ class Recognition(object):
                 # get pose info
                 pose = TfPoseVisualizer.draw_pose_rgb(show, humans)  # return frame, joints, bboxes, xcenter
                 # recognize the action framewise
-                #show = framewise_recognize(pose, action_classifier)
+                show = framewise_recognize(pose, action_classifier)
 
                 height, width = show.shape[:2]
                 # Display real-time FPS value
@@ -67,10 +67,10 @@ class Recognition(object):
 
                 cv.imshow('Action Recognition based on OpenPose', show)
                 video_writer.write(show)
-                ret, buffer = cv2.imencode('.jpg', show)
-                frame = buffer.tobytes()
-                yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                #ret, buffer = cv2.imencode('.jpg', show)
+                #frame = buffer.tobytes()
+                #yield (b'--frame\r\n'
+                       #b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
                 # # Collect data for the training process(for training)
                 # joints_norm_per_frame = np.array(pose[-1]).astype(np.str)

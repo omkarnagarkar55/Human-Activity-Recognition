@@ -120,7 +120,7 @@ iframe {
 [ Utility ]*/
 .txt1 {
   font-family: Ubuntu-Regular;
-  font-size: 16px;
+  font-size: 20px;
   color: #827ffe;
   line-height: 1.4;
 }
@@ -159,6 +159,7 @@ iframe {
   background: #fff;
   border-radius: 10px;
   position: relative;
+  padding: 20px;
 }
 
 
@@ -167,6 +168,8 @@ iframe {
 
 .login100-form {
   width: 100%;
+  padding: 20px;
+  border-radius :20px;
 }
 
 .login100-form-title {

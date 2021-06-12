@@ -41,9 +41,9 @@ def parse1(name=None):
     #rec = Recognition()
 
     args = 'wave.mp4'
-    return Response(rec.startrecognition(args) , mimetype='multipart/x-mixed-replace; boundary=frame')
-
-    #return render_template('index2.html', name=name)
+    #return Response(rec.startrecognition(args) , mimetype='multipart/x-mixed-replace; boundary=frame')
+    rec.startrecognition(args)
+    return render_template('index2.html', name=name)
 
 @app.route('/', methods=['GET'])
 def index():

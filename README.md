@@ -17,4 +17,5 @@ A skeleton-based real-time online action recognition project, classifying and re
  - tensorflow & keras
  - numpy & scipy 
  - pathlib
+ - flask 
  
